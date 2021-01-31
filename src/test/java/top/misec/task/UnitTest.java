@@ -31,7 +31,9 @@ public class UnitTest {
 
         //初始化配置
         Config.getInstance().configInit();
-        new GiveGift().run();
+        new UserCheck().run();
+        new ChargeMe().run();
+        new GetVipPrivilege().run();
 
     }
 }

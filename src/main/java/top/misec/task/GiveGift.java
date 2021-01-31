@@ -3,8 +3,6 @@ package top.misec.task;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import lombok.extern.log4j.Log4j2;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.core.Logger;
 import top.misec.config.Config;
 import top.misec.login.Verify;
 import top.misec.utils.HttpUtil;
@@ -126,7 +124,8 @@ public class GiveGift implements Task {
     public String getRoomInfoOld(String mid) {
         JsonObject pJson = new JsonObject();
         pJson.addProperty("mid", Integer.parseInt(mid));
-        return HttpUtil.doGet("http://api.live.bilibili.com/room/v1/Room/getRoomInfoOld", pJson)
+        String urlPram = "?mid=" + mid;
+        return HttpUtil.doGet("http://api.live.bilibili.com/room/v1/Room/getRoomInfoOld" + urlPram)
                 .get("data").getAsJsonObject()
                 .get("roomid").getAsString();
     }
